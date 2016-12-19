@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Demo.mvc.ViewModels.AlumnoViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado alumnos</h2>
+
+<table class="table table-bordered table-condensed table-hover">
+    <caption class="text-center">
+        <a href="@Url.Action("Create", "Alumnos")" class="btn btn-xs btn-primary">
+            <i class="glyphicon glyphicon-plus"></i>Nuevo Alumno
+        </a><br/>
+    </caption>
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dni)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Promedio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreCurso)
+        </th>
+        <th>Acciones</th>
+    </tr>
+
+    </thead>
+    <tbody>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dni)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Edad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Promedio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreCurso)
+            </td>
+            <td>
+                <a href="@Url.Action("Details", "Alumnos", new {id = item.IdAlumno})">
+                    <i class="glyphicon glyphicon-list-alt"></i>
+                </a>
+
+                <a href="@Url.Action("Edit", "Alumnos", new {id = item.IdAlumno})">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </a>
+
+                <a href="@Url.Action("Delete", "Alumnos", new {id = item.IdAlumno})">
+                    <i class="glyphicon glyphicon-trash"></i>
+                </a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+

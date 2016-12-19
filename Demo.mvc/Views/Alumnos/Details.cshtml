@@ -1,0 +1,79 @@
+﻿@model Demo.mvc.ViewModels.AlumnoViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Detalle del alumno: @Html.DisplayFor(model => model.Nombre)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dni)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dni)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Edad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Edad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Promedio)
+        </dt>
+
+        <dd>
+            
+            @if (Model.Promedio > 10)
+            {
+                <label class="label label-success">
+                    @Html.DisplayFor(model => model.Promedio)
+                </label>
+            }
+            else
+            {
+                <label class="label label-danger">
+                    @Html.DisplayFor(model => model.Promedio)
+                </label>
+            }
+            
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreCurso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreCurso)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdAlumno }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

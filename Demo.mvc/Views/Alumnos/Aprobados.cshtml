@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Demo.mvc.ViewModels.AlumnoViewModel>
+
+@{
+    ViewBag.Title = "Aprobados";
+}
+
+<h2>Aprobados</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dni)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Promedio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreCurso)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dni)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Edad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Promedio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreCurso)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdAlumno }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdAlumno }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdAlumno })
+        </td>
+    </tr>
+}
+
+</table>
